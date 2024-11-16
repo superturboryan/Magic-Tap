@@ -1,0 +1,11 @@
+project.xcworkspace/
+xcuserdata/
+
+*.xcworkspacedata
+*package.resolved
+*.xcconfig
+*.xcuserdatad
+*.xcbkptlist
+*.xcsettings
+
+*.DS_Store

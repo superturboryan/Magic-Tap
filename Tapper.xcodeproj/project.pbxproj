@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		945F77A62CE9ED4C00FD5EEF /* Control in Frameworks */ = {isa = PBXBuildFile; productRef = 945F77A52CE9ED4C00FD5EEF /* Control */; };
+		945F77A82CE9ED4C00FD5EEF /* Controllers in Frameworks */ = {isa = PBXBuildFile; productRef = 945F77A72CE9ED4C00FD5EEF /* Controllers */; };
 		94A112AD2CE91CE4005F7EB2 /* Common in Resources */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
 		94A112B22CE91DD7005F7EB2 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 94A112B12CE91DD7005F7EB2 /* Common */; };
 		94A112B32CE91E22005F7EB2 /* Common in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
@@ -85,7 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945F77A62CE9ED4C00FD5EEF /* Control in Frameworks */,
 				94A112B62CE91E60005F7EB2 /* Common in Frameworks */,
+				945F77A82CE9ED4C00FD5EEF /* Controllers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +147,8 @@
 			name = Tapper;
 			packageProductDependencies = (
 				94A112B52CE91E60005F7EB2 /* Common */,
+				945F77A52CE9ED4C00FD5EEF /* Control */,
+				945F77A72CE9ED4C00FD5EEF /* Controllers */,
 			);
 			productName = Tapper;
 			productReference = 94AA2C6C2CE8FD2D00B0549C /* Tapper.app */;
@@ -201,6 +207,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				94A112AE2CE91D93005F7EB2 /* XCLocalSwiftPackageReference "Common" */,
+				945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94AA2C6D2CE8FD2D00B0549C /* Products */;
@@ -536,7 +543,28 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/superturboryan/ControlKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		945F77A52CE9ED4C00FD5EEF /* Control */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */;
+			productName = Control;
+		};
+		945F77A72CE9ED4C00FD5EEF /* Controllers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */;
+			productName = Controllers;
+		};
 		94A112B12CE91DD7005F7EB2 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;

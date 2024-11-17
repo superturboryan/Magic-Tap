@@ -14,7 +14,7 @@
 		94A112B32CE91E22005F7EB2 /* Common in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
 		94A112B42CE91E2D005F7EB2 /* Common in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
 		94A112B62CE91E60005F7EB2 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 94A112B52CE91E60005F7EB2 /* Common */; };
-		94AA2C7D2CE8FD2F00B0549C /* Tapper Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Tapper Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				94AA2C7D2CE8FD2F00B0549C /* Tapper Watch App.app in Embed Watch Content */,
+				94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -65,19 +65,19 @@
 
 /* Begin PBXFileReference section */
 		94A112AC2CE91CE4005F7EB2 /* Common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Common; sourceTree = "<group>"; };
-		94AA2C6C2CE8FD2D00B0549C /* Tapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		94AA2C7C2CE8FD2F00B0549C /* Tapper Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tapper Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		94AA2C6E2CE8FD2D00B0549C /* Tapper */ = {
+		94AA2C6E2CE8FD2D00B0549C /* Phone App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Tapper;
+			path = "Phone App";
 			sourceTree = "<group>";
 		};
-		94AA2C802CE8FD2F00B0549C /* Tapper Watch App */ = {
+		94AA2C802CE8FD2F00B0549C /* Watch App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Tapper Watch App";
+			path = "Watch App";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -108,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				94A112AC2CE91CE4005F7EB2 /* Common */,
-				94AA2C6E2CE8FD2D00B0549C /* Tapper */,
-				94AA2C802CE8FD2F00B0549C /* Tapper Watch App */,
+				94AA2C6E2CE8FD2D00B0549C /* Phone App */,
+				94AA2C802CE8FD2F00B0549C /* Watch App */,
 				94AA2C6D2CE8FD2D00B0549C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,8 +117,8 @@
 		94AA2C6D2CE8FD2D00B0549C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				94AA2C6C2CE8FD2D00B0549C /* Tapper.app */,
-				94AA2C7C2CE8FD2F00B0549C /* Tapper Watch App.app */,
+				94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */,
+				94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,9 +126,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		94AA2C6B2CE8FD2D00B0549C /* Tapper */ = {
+		94AA2C6B2CE8FD2D00B0549C /* Magic Tap */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94AA2C902CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Tapper" */;
+			buildConfigurationList = 94AA2C902CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Magic Tap" */;
 			buildPhases = (
 				94AA2C682CE8FD2D00B0549C /* Sources */,
 				94AA2C692CE8FD2D00B0549C /* Frameworks */,
@@ -142,21 +142,21 @@
 				94AA2C7F2CE8FD2F00B0549C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				94AA2C6E2CE8FD2D00B0549C /* Tapper */,
+				94AA2C6E2CE8FD2D00B0549C /* Phone App */,
 			);
-			name = Tapper;
+			name = "Magic Tap";
 			packageProductDependencies = (
 				94A112B52CE91E60005F7EB2 /* Common */,
 				945F77A52CE9ED4C00FD5EEF /* Control */,
 				945F77A72CE9ED4C00FD5EEF /* Controllers */,
 			);
 			productName = Tapper;
-			productReference = 94AA2C6C2CE8FD2D00B0549C /* Tapper.app */;
+			productReference = 94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */;
 			productType = "com.apple.product-type.application";
 		};
-		94AA2C7B2CE8FD2F00B0549C /* Tapper Watch App */ = {
+		94AA2C7B2CE8FD2F00B0549C /* Magic Tap Watch App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 94AA2C8C2CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Tapper Watch App" */;
+			buildConfigurationList = 94AA2C8C2CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Magic Tap Watch App" */;
 			buildPhases = (
 				94AA2C782CE8FD2F00B0549C /* Sources */,
 				94AA2C792CE8FD2F00B0549C /* Frameworks */,
@@ -168,14 +168,14 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				94AA2C802CE8FD2F00B0549C /* Tapper Watch App */,
+				94AA2C802CE8FD2F00B0549C /* Watch App */,
 			);
-			name = "Tapper Watch App";
+			name = "Magic Tap Watch App";
 			packageProductDependencies = (
 				94A112B12CE91DD7005F7EB2 /* Common */,
 			);
 			productName = "Tapper Watch App";
-			productReference = 94AA2C7C2CE8FD2F00B0549C /* Tapper Watch App.app */;
+			productReference = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -196,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 94AA2C672CE8FD2D00B0549C /* Build configuration list for PBXProject "Tapper" */;
+			buildConfigurationList = 94AA2C672CE8FD2D00B0549C /* Build configuration list for PBXProject "Magic Tap" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -214,8 +214,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				94AA2C6B2CE8FD2D00B0549C /* Tapper */,
-				94AA2C7B2CE8FD2F00B0549C /* Tapper Watch App */,
+				94AA2C6B2CE8FD2D00B0549C /* Magic Tap */,
+				94AA2C7B2CE8FD2F00B0549C /* Magic Tap Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -258,7 +258,7 @@
 /* Begin PBXTargetDependency section */
 		94AA2C7F2CE8FD2F00B0549C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 94AA2C7B2CE8FD2F00B0549C /* Tapper Watch App */;
+			target = 94AA2C7B2CE8FD2F00B0549C /* Magic Tap Watch App */;
 			targetProxy = 94AA2C7E2CE8FD2F00B0549C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -385,20 +385,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Tapper Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Tapper;
+				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = RyanDF.Tapper;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "RyanDF.Magic-Tap";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = RyanDF.Tapper.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -416,20 +416,20 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Tapper Watch App/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Watch App/Preview Content\"";
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Tapper;
+				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = RyanDF.Tapper;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "RyanDF.Magic-Tap";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = RyanDF.Tapper.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -448,11 +448,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Tapper/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Phone App/Preview Content\"";
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Tapper;
+				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -465,7 +465,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = RyanDF.Tapper;
+				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -481,11 +481,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Tapper/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Phone App/Preview Content\"";
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Tapper;
+				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -498,7 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = RyanDF.Tapper;
+				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -511,7 +511,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		94AA2C672CE8FD2D00B0549C /* Build configuration list for PBXProject "Tapper" */ = {
+		94AA2C672CE8FD2D00B0549C /* Build configuration list for PBXProject "Magic Tap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94AA2C8A2CE8FD3000B0549C /* Debug */,
@@ -520,7 +520,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94AA2C8C2CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Tapper Watch App" */ = {
+		94AA2C8C2CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Magic Tap Watch App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94AA2C8D2CE8FD3000B0549C /* Debug */,
@@ -529,7 +529,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		94AA2C902CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Tapper" */ = {
+		94AA2C902CE8FD3000B0549C /* Build configuration list for PBXNativeTarget "Magic Tap" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				94AA2C912CE8FD3000B0549C /* Debug */,

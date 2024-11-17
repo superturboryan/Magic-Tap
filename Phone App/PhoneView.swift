@@ -15,6 +15,7 @@ struct PhoneView: View {
     @EnvironmentObject var wcManager: WCManager
     
     @State var selectedAction: Action = .none
+    @State var showAbout = false
     
     let performActionPublisher = NotificationCenter.default.publisher(
         for: MessageKeys.perform.notification
@@ -33,15 +34,20 @@ struct PhoneView: View {
             .padding()
             .toolbar {
                 watchImage
+                showAboutButton
             }
+        }
+        .sheet(isPresented: $showAbout) {
+            AboutView()
         }
         .onReceive(performActionPublisher) { handleNotifcation($0) }
         .onReceive(selectActionPublisher) { handleNotifcation($0) }
     }
     
     var selectedActionView: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("Selected Action")
+                .fontWeight(.semibold)
             Text("\(selectedAction.display)")
         }
         .font(.title)
@@ -54,14 +60,25 @@ struct PhoneView: View {
                // No action
             } label: {
                 if wcManager.isReachable {
-                    Image(systemName: "iphone")
+                    Image(systemName: "checkmark.applewatch")
                         .foregroundStyle(.green)
                 } else {
-                    Image(systemName: "iphone.slash")
+                    Image(systemName: "applewatch.slash")
                         .foregroundStyle(.red)
                 }
             }
             .buttonStyle(.plain)
+        }
+    }
+    
+    var showAboutButton: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button {
+                showAbout = true
+            } label: {
+                Image(systemName: "info.circle")
+                    .fontWeight(.bold)
+            }
         }
     }
     

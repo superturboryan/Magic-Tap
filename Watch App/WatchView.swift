@@ -35,13 +35,18 @@ struct WatchView: View {
             }
         }
         .onAppear {
-            isFirstLaunch = true // FOR DEBUGGING ONBOARDING
+            #if DEBUG
+//            isFirstLaunch = true // FOR DEBUGGING ONBOARDING
+            #endif
             if isFirstLaunch {
                 showInfo = true
             }
         }
         .sheet(isPresented: $showInfo) {
             info
+            .onDisappear {
+                isFirstLaunch = false
+            }
         }
         .onChange(of: selectedAction) { old, new in
             wcManager.updateSelectedAction(new)
@@ -131,9 +136,6 @@ struct WatchView: View {
                         }
                     }
                 }
-            }
-            .onDisappear {
-                isFirstLaunch = false
             }
         }
     }

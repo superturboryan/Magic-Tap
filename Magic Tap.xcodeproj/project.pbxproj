@@ -10,13 +10,10 @@
 		943BC02C2CEA876900F040A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02B2CEA876900F040A6 /* WidgetKit.framework */; };
 		943BC02E2CEA876900F040A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02D2CEA876900F040A6 /* SwiftUI.framework */; };
 		943BC0372CEA876A00F040A6 /* Complication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 943BC0292CEA876900F040A6 /* Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		943BC04D2CEAA64C00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04C2CEAA64C00F040A6 /* Common */; };
+		943BC04F2CEAA66F00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04E2CEAA66F00F040A6 /* Common */; };
 		945F77A62CE9ED4C00FD5EEF /* Control in Frameworks */ = {isa = PBXBuildFile; productRef = 945F77A52CE9ED4C00FD5EEF /* Control */; };
 		945F77A82CE9ED4C00FD5EEF /* Controllers in Frameworks */ = {isa = PBXBuildFile; productRef = 945F77A72CE9ED4C00FD5EEF /* Controllers */; };
-		94A112AD2CE91CE4005F7EB2 /* Common in Resources */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
-		94A112B22CE91DD7005F7EB2 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 94A112B12CE91DD7005F7EB2 /* Common */; };
-		94A112B32CE91E22005F7EB2 /* Common in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
-		94A112B42CE91E2D005F7EB2 /* Common in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94A112AC2CE91CE4005F7EB2 /* Common */; };
-		94A112B62CE91E60005F7EB2 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 94A112B52CE91E60005F7EB2 /* Common */; };
 		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -44,7 +41,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				94A112B32CE91E22005F7EB2 /* Common in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,7 +51,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				94A112B42CE91E2D005F7EB2 /* Common in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,7 +83,6 @@
 		943BC0292CEA876900F040A6 /* Complication.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Complication.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		943BC02B2CEA876900F040A6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		943BC02D2CEA876900F040A6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		94A112AC2CE91CE4005F7EB2 /* Common */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Common; sourceTree = "<group>"; };
 		94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,8 +151,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				945F77A62CE9ED4C00FD5EEF /* Control in Frameworks */,
-				94A112B62CE91E60005F7EB2 /* Common in Frameworks */,
 				945F77A82CE9ED4C00FD5EEF /* Controllers in Frameworks */,
+				943BC04D2CEAA64C00F040A6 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,7 +160,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94A112B22CE91DD7005F7EB2 /* Common in Frameworks */,
+				943BC04F2CEAA66F00F040A6 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,7 +179,6 @@
 		94AA2C632CE8FD2D00B0549C = {
 			isa = PBXGroup;
 			children = (
-				94A112AC2CE91CE4005F7EB2 /* Common */,
 				94AA2C6E2CE8FD2D00B0549C /* Phone App */,
 				94AA2C802CE8FD2F00B0549C /* Watch App */,
 				943BC02F2CEA876900F040A6 /* Complication */,
@@ -249,9 +242,9 @@
 			);
 			name = "Magic Tap";
 			packageProductDependencies = (
-				94A112B52CE91E60005F7EB2 /* Common */,
 				945F77A52CE9ED4C00FD5EEF /* Control */,
 				945F77A72CE9ED4C00FD5EEF /* Controllers */,
+				943BC04C2CEAA64C00F040A6 /* Common */,
 			);
 			productName = Tapper;
 			productReference = 94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */;
@@ -277,7 +270,7 @@
 			);
 			name = "Magic Tap Watch App";
 			packageProductDependencies = (
-				94A112B12CE91DD7005F7EB2 /* Common */,
+				943BC04E2CEAA66F00F040A6 /* Common */,
 			);
 			productName = "Tapper Watch App";
 			productReference = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */;
@@ -314,8 +307,8 @@
 			mainGroup = 94AA2C632CE8FD2D00B0549C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				94A112AE2CE91D93005F7EB2 /* XCLocalSwiftPackageReference "Common" */,
 				945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */,
+				943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94AA2C6D2CE8FD2D00B0549C /* Products */;
@@ -341,7 +334,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94A112AD2CE91CE4005F7EB2 /* Common in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +390,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T6MXF72738;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Complication/Info.plist;
@@ -411,7 +403,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.watchkitapp.Complication";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RyanDF.Magic-Tap.watchkitapp.Comp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -428,7 +420,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T6MXF72738;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Complication/Info.plist;
@@ -441,7 +433,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.watchkitapp.Complication";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RyanDF.Magic-Tap.watchkitapp.Comp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -573,20 +565,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "RyanDF.Magic-Tap";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.RyanDF.Magic-Tap";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RyanDF.Magic-Tap.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -603,20 +595,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "RyanDF.Magic-Tap";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.RyanDF.Magic-Tap";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RyanDF.Magic-Tap.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -634,7 +626,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -651,12 +643,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RyanDF.Magic-Tap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -666,7 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -683,12 +678,15 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.RyanDF.Magic-Tap";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -735,7 +733,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		94A112AE2CE91D93005F7EB2 /* XCLocalSwiftPackageReference "Common" */ = {
+		943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Common;
 		};
@@ -753,6 +751,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		943BC04C2CEAA64C00F040A6 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Common;
+		};
+		943BC04E2CEAA66F00F040A6 /* Common */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */;
+			productName = Common;
+		};
 		945F77A52CE9ED4C00FD5EEF /* Control */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */;
@@ -762,14 +769,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */;
 			productName = Controllers;
-		};
-		94A112B12CE91DD7005F7EB2 /* Common */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Common;
-		};
-		94A112B52CE91E60005F7EB2 /* Common */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Common;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

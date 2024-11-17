@@ -24,7 +24,7 @@ public final class WCManager: NSObject, ObservableObject {
     private lazy var decoder = JSONDecoder()
     private lazy var encoder = JSONEncoder()
     
-    @AppStorage(Action.key) public var cachedAction: Action = .none
+    public var cachedAction: Action = .none
     
     var performActionPayload: [String: any Codable] {
         [MessageKeys.perform : encode(cachedAction)]

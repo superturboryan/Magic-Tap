@@ -20,40 +20,55 @@ public final class WCManager: NSObject, ObservableObject {
         setupWCSession()
     }
     
-    private func setupWCSession() {
-        guard WCSession.isSupported() else {
-            return
-        }
-        
-        session.delegate = self
-        session.activate()
-    }
-
-    func sendMessage(_ message: [String: Any]) {
-        guard session.isReachable else {
-            print("Session is not reachable")
-            return
-        }
-        session.sendMessage(message, replyHandler: nil, errorHandler: { error in
-            print("Error sending message: \(error.localizedDescription)")
-        })
+    public func sendAction(_ action: Action) {
+        sendMessage([
+            Action.key : action
+        ])
     }
 }
 
 private extension WCManager {
     
-    func handleAction(_ action: String) {
-        #if os(iOS)
-        print("iOS received action: \(action)")
-        #elseif os(watchOS)
-        print("watchOS received action: \(action)")
-        #endif
+    func setupWCSession() {
+        guard WCSession.isSupported() else {
+            return
+        }
+        session.delegate = self
+        session.activate()
+    }
+    
+    func sendMessage(_ message: [String: Any]) {
+        guard session.isReachable else {
+            print("Session is not reachable")
+            return
+        }
+        session.sendMessage(
+            message,
+            replyHandler: nil,
+            errorHandler: { error in
+                print("Error sending message: \(error.localizedDescription)")
+            }
+        )
+    }
+        
+    func postNotification(for action: Action) {
+        NotificationCenter.default.post(
+            name: Action.key.notification,
+            object: nil,
+            userInfo: [
+                Action.key : action
+            ]
+        )
     }
 }
 
 extension WCManager: WCSessionDelegate {
     
-    public func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+    public func session(
+        _ session: WCSession,
+        activationDidCompleteWith activationState: WCSessionActivationState,
+        error: Error?
+    ) {
         print("Session activated: \(activationState.rawValue)")
         
         session.publisher(for: \.isReachable)
@@ -64,10 +79,13 @@ extension WCManager: WCSessionDelegate {
         .store(in: &cancellables)
     }
     
-    public func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+    public func session(
+        _ session: WCSession,
+        didReceiveMessage message: [String: Any]
+    ) {
         print("Message received: \(message)")
-        if let action = message["action"] as? String {
-            self.handleAction(action)
+        if let action = message["\(Action.self)"] as? Action {
+            postNotification(for: action)
         }
     }
     

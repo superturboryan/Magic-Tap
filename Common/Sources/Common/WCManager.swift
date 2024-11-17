@@ -14,6 +14,9 @@ public final class WCManager: NSObject, ObservableObject {
     
     private let session = WCSession.default
     private var cancellables: [AnyCancellable] = []
+    
+    private lazy var decoder = JSONDecoder()
+    private lazy var encoder = JSONEncoder()
 
     public override init() {
         super.init()
@@ -21,8 +24,9 @@ public final class WCManager: NSObject, ObservableObject {
     }
     
     public func sendAction(_ action: Action) {
+        let encodedAction = (try? encoder.encode(action)) ?? Data()
         sendMessage([
-            Action.key : action
+            Action.key : encodedAction
         ])
     }
 }
@@ -37,7 +41,7 @@ private extension WCManager {
         session.activate()
     }
     
-    func sendMessage(_ message: [String: Any]) {
+    func sendMessage(_ message: [String: any Codable]) {
         guard session.isReachable else {
             print("Session is not reachable")
             return
@@ -52,7 +56,7 @@ private extension WCManager {
     }
         
     func postNotification(for action: Action) {
-        NotificationCenter.default.post(
+        NotificationCenter.default.postFromMainThread(
             name: Action.key.notification,
             object: nil,
             userInfo: [
@@ -84,9 +88,13 @@ extension WCManager: WCSessionDelegate {
         didReceiveMessage message: [String: Any]
     ) {
         print("Message received: \(message)")
-        if let action = message["\(Action.self)"] as? Action {
-            postNotification(for: action)
+        guard
+            let actionData = message[Action.key] as? Data,
+            let action = try? decoder.decode(Action.self, from: actionData)
+        else {
+            return
         }
+        postNotification(for: action)
     }
     
     public func sessionReachabilityDidChange(_ session: WCSession) {
@@ -103,4 +111,21 @@ extension WCManager: WCSessionDelegate {
         session.activate() // Reactivate session if needed
     }
     #endif
+}
+
+extension NotificationCenter {
+    
+    func postFromMainThread(
+        name: Notification.Name,
+        object: (any Sendable)?,
+        userInfo: [String : any (Sendable & Codable)]
+    ) {
+        DispatchQueue.main.async { [object, userInfo] in
+            NotificationCenter.default.post(
+                name: name,
+                object: object,
+                userInfo: userInfo
+            )
+        }
+    }
 }

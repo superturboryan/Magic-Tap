@@ -16,9 +16,11 @@ struct WatchView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(spacing: 20) {
+            VStack {
                 selectActionPicker
-                tapMeButton
+            }
+            .background {
+                hiddenButton
             }
             .padding()
             .fontDesign(.rounded)
@@ -34,12 +36,15 @@ struct WatchView: View {
     var selectActionPicker: some View {
         Picker(selection: $selectedAction) {
             ForEach(Action.allCases) {
-                Text($0.display).tag($0)
+                Text($0.display)
+                    .font(.title)
+                    .tag($0)
             }
         } label: {
             Text("Selected 👌 Action")
-                .font(.callout)
+                .font(.title3)
         }
+        .defaultWheelPickerItemHeight(50)
     }
     
     var phoneImage: some ToolbarContent {
@@ -58,13 +63,14 @@ struct WatchView: View {
             .buttonStyle(.plain)
         }
     }
-    
-    var tapMeButton: some View {
+        
+    var hiddenButton: some View {
         Button {
             wcManager.sendAction(selectedAction)
         } label: {
-            Text("Double Tap 🙂‍↕️")
+            Text("")
         }
+        .buttonStyle(.plain)
         .handGestureShortcut(.primaryAction)
     }
 }

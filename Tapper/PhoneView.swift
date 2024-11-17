@@ -14,32 +14,66 @@ struct PhoneView: View {
     @EnvironmentObject var systemController: SystemController
     @EnvironmentObject var wcManager: WCManager
     
-    let actionPublisher = NotificationCenter.default.publisher(
-        for: Action.key.notification
+    @State var selectedAction: Action = .none
+    
+    let performActionPublisher = NotificationCenter.default.publisher(
+        for: MessageKeys.perform.notification
+    )
+    
+    let selectActionPublisher = NotificationCenter.default.publisher(
+        for: MessageKeys.select.notification
     )
     
     var body: some View {
-        VStack {
-            if wcManager.isReachable {
-                Image(systemName: "checkmark.applewatch")
-                    .foregroundStyle(.green)
-            } else {
-                Image(systemName: "exclamationmark.applewatch")
-                    .foregroundStyle(.red)
+        NavigationStack {
+            VStack {
+                selectedActionView
             }
-            Text("Hello, world!")
+            .imageScale(.large)
+            .padding()
+            .toolbar {
+                watchImage
+            }
         }
-        .imageScale(.large)
-        .padding()
-        .onReceive(actionPublisher) { handleNotifcation($0) }
+        .onReceive(performActionPublisher) { handleNotifcation($0) }
+        .onReceive(selectActionPublisher) { handleNotifcation($0) }
+    }
+    
+    var selectedActionView: some View {
+        VStack {
+            Text("Selected Action")
+            Text("\(selectedAction.display)")
+        }
+        .font(.title)
+        .animation(.default, value: selectedAction)
+    }
+    
+    var watchImage: some ToolbarContent {
+        ToolbarItem(placement: .topBarLeading) {
+            Button {
+               // No action
+            } label: {
+                if wcManager.isReachable {
+                    Image(systemName: "iphone")
+                        .foregroundStyle(.green)
+                } else {
+                    Image(systemName: "iphone.slash")
+                        .foregroundStyle(.red)
+                }
+            }
+            .buttonStyle(.plain)
+        }
     }
     
     func handleNotifcation(_ notification: Notification) {
-        guard let action = notification.userInfo?[Action.key] as? Action else {
-            print("Action not found in notification.userInfo")
-            return
+        if let actionToSelect = notification.userInfo?[MessageKeys.select] as? Action {
+            selectedAction = actionToSelect
         }
-        perform(action)
+        
+        if let actionToPerform = notification.userInfo?[MessageKeys.perform] as? Action {
+            selectedAction = actionToPerform
+            perform(actionToPerform)
+        }
     }
     
     func perform(_ action: Action) {

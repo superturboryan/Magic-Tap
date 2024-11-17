@@ -6,7 +6,13 @@
 //
 
 import Combine
+import SwiftUI
 import WatchConnectivity
+
+public enum MessageKeys {
+    public static let perform = "Perform"
+    public static let select = "Select"
+}
 
 public final class WCManager: NSObject, ObservableObject {
     
@@ -17,17 +23,30 @@ public final class WCManager: NSObject, ObservableObject {
     
     private lazy var decoder = JSONDecoder()
     private lazy var encoder = JSONEncoder()
-
+    
+    @AppStorage(Action.key) public var cachedAction: Action = .none
+    
+    var performActionPayload: [String: any Codable] {
+        [MessageKeys.perform : encode(cachedAction)]
+    }
+    
+    var selectActionPayload: [String: any Codable] {
+        [MessageKeys.select : encode(cachedAction)]
+    }
+    
     public override init() {
         super.init()
         setupWCSession()
     }
     
     public func sendAction(_ action: Action) {
-        let encodedAction = (try? encoder.encode(action)) ?? Data()
-        sendMessage([
-            Action.key : encodedAction
-        ])
+        cachedAction = action
+        sendMessage(performActionPayload)
+    }
+    
+    public func updateSelectedAction(_ action: Action) {
+        cachedAction = action
+        sendMessage(selectActionPayload)
     }
 }
 
@@ -54,15 +73,23 @@ private extension WCManager {
             }
         )
     }
-        
-    func postNotification(for action: Action) {
+    
+    func postNotification(named: String, for action: Action) {
         NotificationCenter.default.postFromMainThread(
-            name: Action.key.notification,
+            name: named.notification,
             object: nil,
             userInfo: [
-                Action.key : action
+                named : action
             ]
         )
+    }
+    
+    func encode(_ action: Action) -> Data {
+        (try? encoder.encode(action)) ?? Data()
+    }
+    
+    func decode(_ data: Data) -> Action {
+        (try? decoder.decode(Action.self, from: data)) ?? .none
     }
 }
 
@@ -81,6 +108,8 @@ extension WCManager: WCSessionDelegate {
             self?.isReachable = isReachable
         }
         .store(in: &cancellables)
+        
+        updateSelectedAction(cachedAction)
     }
     
     public func session(
@@ -88,13 +117,14 @@ extension WCManager: WCSessionDelegate {
         didReceiveMessage message: [String: Any]
     ) {
         print("Message received: \(message)")
-        guard
-            let actionData = message[Action.key] as? Data,
-            let action = try? decoder.decode(Action.self, from: actionData)
-        else {
-            return
+        
+        if let actionToPerformData = message[MessageKeys.perform] as? Data {
+            postNotification(named:MessageKeys.perform, for: decode(actionToPerformData))
         }
-        postNotification(for: action)
+        
+        if let selectedActionData = message[MessageKeys.select] as? Data {
+            postNotification(named: MessageKeys.select, for: decode(selectedActionData))
+        }
     }
     
     public func sessionReachabilityDidChange(_ session: WCSession) {
@@ -113,7 +143,7 @@ extension WCManager: WCSessionDelegate {
     #endif
 }
 
-extension NotificationCenter {
+private extension NotificationCenter {
     
     func postFromMainThread(
         name: Notification.Name,
@@ -128,4 +158,9 @@ extension NotificationCenter {
             )
         }
     }
+}
+
+public extension String {
+    
+    var notification: Notification.Name { .init(self) }
 }

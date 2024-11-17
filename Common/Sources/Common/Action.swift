@@ -40,8 +40,3 @@ extension Action: Identifiable {
         }
     }
 }
-
-extension String {
-    
-    public var notification: Notification.Name { .init(self) }
-}

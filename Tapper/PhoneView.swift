@@ -6,10 +6,12 @@
 //
 
 import Common
+import Controllers
 import SwiftUI
 
 struct PhoneView: View {
     
+    @EnvironmentObject var systemController: SystemController
     @EnvironmentObject var wcManager: WCManager
     
     let actionPublisher = NotificationCenter.default.publisher(
@@ -45,19 +47,20 @@ struct PhoneView: View {
         switch action {
 
         case .incrementVolume:
-            print("Not implemented")
+            systemController.volume.increaseVolume()
         case .decrementVolume:
-            print("Not implemented")
+            systemController.volume.decreaseVolume()
         case .toggleMute:
-            print("Not implemented")
+            systemController.volume.toggleMute()
         case .togglePlayPause:
-            print("Not implemented")
+            systemController.togglePlayPause()
         case .nextTrack:
-            print("Not implemented")
+            systemController.skipToNextTrack()
         case .previousTrack:
-            print("Not implemented")
+            systemController.skipToPreviousTrack()
         case .vibrate:
-            print("Not implemented")
+            systemController.vibrate()
+        
         case .none:
             print("Not implemented")
         }

@@ -101,6 +101,20 @@
 			);
 			target = 943BC0282CEA876900F040A6 /* Complication */;
 		};
+		943BC0442CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Magic Tap Watch App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PrivacyInfo.xcprivacy,
+			);
+			target = 94AA2C7B2CE8FD2F00B0549C /* Magic Tap Watch App */;
+		};
+		943BC0452CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Complication" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				PrivacyInfo.xcprivacy,
+			);
+			target = 943BC0282CEA876900F040A6 /* Complication */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -114,6 +128,10 @@
 		};
 		94AA2C6E2CE8FD2D00B0549C /* Phone App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				943BC0442CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Magic Tap Watch App" target */,
+				943BC0452CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Complication" target */,
+			);
 			path = "Phone App";
 			sourceTree = "<group>";
 		};

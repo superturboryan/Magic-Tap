@@ -1,4 +1,10 @@
-# Magic Tapper 
+# Magic Tapper 👌✨
+
+### Power Up Your Double Tap
+
+[<img src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3e/70/82/3e7082e6-e860-5ac3-95e9-d1e92b8b6fea/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/246x0w.webp" width=100/>](https://apps.apple.com/us/app/magic-tapper/id6738328808)
+
+Control your phone with a tap! Magic Tapper makes it easy to adjust volume, control music, or find your phone - all from your watch
 
 ## Privacy Policy
 

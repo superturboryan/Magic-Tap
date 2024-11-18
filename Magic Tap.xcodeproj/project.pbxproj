@@ -83,6 +83,7 @@
 		943BC0292CEA876900F040A6 /* Complication.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Complication.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		943BC02B2CEA876900F040A6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		943BC02D2CEA876900F040A6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		943BC0802CEB8A9200F040A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -179,6 +180,7 @@
 		94AA2C632CE8FD2D00B0549C = {
 			isa = PBXGroup;
 			children = (
+				943BC0802CEB8A9200F040A6 /* README.md */,
 				94AA2C6E2CE8FD2D00B0549C /* Phone App */,
 				94AA2C802CE8FD2F00B0549C /* Watch App */,
 				943BC02F2CEA876900F040A6 /* Complication */,

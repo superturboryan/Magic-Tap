@@ -7,13 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		94340D182CF3ACCF00A8C13B /* Controllers in Frameworks */ = {isa = PBXBuildFile; productRef = 94340D172CF3ACCF00A8C13B /* Controllers */; };
-		94340D1A2CF3AE0300A8C13B /* Control in Frameworks */ = {isa = PBXBuildFile; productRef = 94340D192CF3AE0300A8C13B /* Control */; };
 		943BC02C2CEA876900F040A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02B2CEA876900F040A6 /* WidgetKit.framework */; };
 		943BC02E2CEA876900F040A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02D2CEA876900F040A6 /* SwiftUI.framework */; };
 		943BC0372CEA876A00F040A6 /* Complication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 943BC0292CEA876900F040A6 /* Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		943BC04D2CEAA64C00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04C2CEAA64C00F040A6 /* Common */; };
-		943BC04F2CEAA66F00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04E2CEAA66F00F040A6 /* Common */; };
 		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -80,6 +76,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		94335B2C2CEE69DF000670F2 /* Magic Tap Mac App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magic Tap Mac App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		943BC0292CEA876900F040A6 /* Complication.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Complication.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		943BC02B2CEA876900F040A6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		943BC02D2CEA876900F040A6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -113,6 +110,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		94335B2D2CEE69DF000670F2 /* Mac App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Mac App";
+			sourceTree = "<group>";
+		};
 		943BC02F2CEA876900F040A6 /* Complication */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -138,6 +140,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		94335B292CEE69DF000670F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9421E9112CEE6C9C00CC88A8 /* Common in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		943BC0262CEA876900F040A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -184,6 +194,7 @@
 				94AA2C6E2CE8FD2D00B0549C /* Phone App */,
 				94AA2C802CE8FD2F00B0549C /* Watch App */,
 				943BC02F2CEA876900F040A6 /* Complication */,
+				94335B2D2CEE69DF000670F2 /* Mac App */,
 				943BC02A2CEA876900F040A6 /* Frameworks */,
 				94AA2C6D2CE8FD2D00B0549C /* Products */,
 			);
@@ -195,6 +206,7 @@
 				94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */,
 				94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */,
 				943BC0292CEA876900F040A6 /* Complication.appex */,
+				94335B2C2CEE69DF000670F2 /* Magic Tap Mac App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -202,6 +214,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		94335B2B2CEE69DF000670F2 /* Magic Tap Mac App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94335B3A2CEE69E0000670F2 /* Build configuration list for PBXNativeTarget "Magic Tap Mac App" */;
+			buildPhases = (
+				94335B282CEE69DF000670F2 /* Sources */,
+				94335B292CEE69DF000670F2 /* Frameworks */,
+				94335B2A2CEE69DF000670F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				94335B2D2CEE69DF000670F2 /* Mac App */,
+			);
+			name = "Magic Tap Mac App";
+			packageProductDependencies = (
+				9421E9102CEE6C9C00CC88A8 /* Common */,
+			);
+			productName = "Magic Tap Mac App";
+			productReference = 94335B2C2CEE69DF000670F2 /* Magic Tap Mac App.app */;
+			productType = "com.apple.product-type.application";
+		};
 		943BC0282CEA876900F040A6 /* Complication */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 943BC03C2CEA876A00F040A6 /* Build configuration list for PBXNativeTarget "Complication" */;
@@ -288,6 +323,9 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					94335B2B2CEE69DF000670F2 = {
+						CreatedOnToolsVersion = 16.0;
+					};
 					943BC0282CEA876900F040A6 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -319,12 +357,20 @@
 			targets = (
 				94AA2C6B2CE8FD2D00B0549C /* Magic Tap */,
 				94AA2C7B2CE8FD2F00B0549C /* Magic Tap Watch App */,
+				94335B2B2CEE69DF000670F2 /* Magic Tap Mac App */,
 				943BC0282CEA876900F040A6 /* Complication */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		94335B2A2CEE69DF000670F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		943BC0272CEA876900F040A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,6 +395,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		94335B282CEE69DF000670F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		943BC0252CEA876900F040A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +439,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		94335B382CEE69E0000670F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mac App/MacApp.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T6MXF72738;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94335B392CEE69E0000670F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Mac App/MacApp.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T6MXF72738;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "RyanDF.Magic-Tap.mac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		943BC0392CEA876A00F040A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -696,6 +805,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		94335B3A2CEE69E0000670F2 /* Build configuration list for PBXNativeTarget "Magic Tap Mac App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94335B382CEE69E0000670F2 /* Debug */,
+				94335B392CEE69E0000670F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		943BC03C2CEA876A00F040A6 /* Build configuration list for PBXNativeTarget "Complication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -746,15 +864,6 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		94340D172CF3ACCF00A8C13B /* Controllers */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Controllers;
-		};
-		94340D192CF3AE0300A8C13B /* Control */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */;
-			productName = Control;
-		};
 		943BC04C2CEAA64C00F040A6 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;

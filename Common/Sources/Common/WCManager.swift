@@ -7,12 +7,14 @@
 
 import Combine
 import SwiftUI
-import WatchConnectivity
 
 public enum MessageKeys {
     public static let perform = "Perform"
     public static let select = "Select"
 }
+
+#if os(iOS) || os(watchOS) // Wrap entire WCManager class
+import WatchConnectivity
 
 public final class WCManager: NSObject, ObservableObject {
     
@@ -142,6 +144,7 @@ extension WCManager: WCSessionDelegate {
     }
     #endif
 }
+#endif
 
 private extension NotificationCenter {
     

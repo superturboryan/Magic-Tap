@@ -18,6 +18,8 @@ struct PhoneView: View {
     @State var selectedAction: Action = .none
     @State var showAbout = false
     
+    let bonjourBroswer = BonjourServiceBrowser()
+    
     let performActionPublisher = NotificationCenter.default.publisher(
         for: MessageKeys.perform.notification
     )
@@ -26,11 +28,16 @@ struct PhoneView: View {
         for: MessageKeys.select.notification
     )
     
+    init() {
+        bonjourBroswer.startBrowsing()
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
                 selectedActionView
             }
+            .font(.title)
             .imageScale(.large)
             .padding()
             .toolbar {
@@ -51,7 +58,6 @@ struct PhoneView: View {
                 .fontWeight(.semibold)
             Text("\(selectedAction.display)")
         }
-        .font(.title)
         .animation(.default, value: selectedAction)
     }
     
@@ -91,6 +97,7 @@ struct PhoneView: View {
         if let actionToPerform = notification.userInfo?[MessageKeys.perform] as? Action {
             selectedAction = actionToPerform
             perform(actionToPerform)
+            bonjourBroswer.sendMessage("From watchOS with love 💌")
         }
     }
     

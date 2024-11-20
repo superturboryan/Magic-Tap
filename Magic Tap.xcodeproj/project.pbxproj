@@ -86,6 +86,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9421E9372CEE70E800CC88A8 /* Exceptions for "Phone App" folder in "Magic Tap" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 94AA2C6B2CE8FD2D00B0549C /* Magic Tap */;
+		};
+		9421E97E2CEE74FE00CC88A8 /* Exceptions for "Mac App" folder in "Magic Tap Mac App" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 94335B2B2CEE69DF000670F2 /* Magic Tap Mac App */;
+		};
 		943BC03B2CEA876A00F040A6 /* Exceptions for "Complication" folder in "Complication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -112,6 +126,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		94335B2D2CEE69DF000670F2 /* Mac App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				9421E97E2CEE74FE00CC88A8 /* Exceptions for "Mac App" folder in "Magic Tap Mac App" target */,
+			);
 			path = "Mac App";
 			sourceTree = "<group>";
 		};
@@ -126,6 +143,7 @@
 		94AA2C6E2CE8FD2D00B0549C /* Phone App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				9421E9372CEE70E800CC88A8 /* Exceptions for "Phone App" folder in "Magic Tap" target */,
 				943BC0442CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Magic Tap Watch App" target */,
 				943BC0452CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Complication" target */,
 			);
@@ -452,7 +470,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mac App/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app needs to access your local network to share data between devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -480,7 +500,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mac App/Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app needs to access your local network to share data between devices";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -741,8 +763,10 @@
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Phone App/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app needs to access your local network to share data between devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -776,8 +800,10 @@
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Phone App/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "The app needs to access your local network to share data between devices";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

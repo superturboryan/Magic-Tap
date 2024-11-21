@@ -7,10 +7,11 @@
 
 import Common
 import SwiftUI
+import XinChao
 
 struct MacView: View {
     
-    @ObservedObject var bonjourAdvertiser = BonjourServiceAdvertiser()
+    @ObservedObject var bonjourAdvertiser = XinChaoAdvertiser()
     
     init() {
         bonjourAdvertiser.stopAdvertising()

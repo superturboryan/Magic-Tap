@@ -9,6 +9,7 @@ import Common
 import Control
 import Controllers
 import SwiftUI
+import XinChao
 
 struct PhoneView: View {
     
@@ -18,7 +19,7 @@ struct PhoneView: View {
     @State var selectedAction: Action = .none
     @State var showAbout = false
     
-    let bonjourBroswer = BonjourServiceBrowser()
+    let bonjourBroswer = XinChaoBrowser()
     
     let performActionPublisher = NotificationCenter.default.publisher(
         for: MessageKeys.perform.notification

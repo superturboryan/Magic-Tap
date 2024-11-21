@@ -10,6 +10,9 @@
 		943BC02C2CEA876900F040A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02B2CEA876900F040A6 /* WidgetKit.framework */; };
 		943BC02E2CEA876900F040A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02D2CEA876900F040A6 /* SwiftUI.framework */; };
 		943BC0372CEA876A00F040A6 /* Complication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 943BC0292CEA876900F040A6 /* Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		944598972CF9B4A7008B44CB /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04C2CEAA64C00F040A6 /* Common */; };
+		944598982CF9B4A7008B44CB /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04E2CEAA66F00F040A6 /* Common */; };
+		944598BE2CF9B4D5008B44CB /* XinChao in Frameworks */ = {isa = PBXBuildFile; productRef = 944598BD2CF9B4D5008B44CB /* XinChao */; };
 		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -162,7 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9421E9112CEE6C9C00CC88A8 /* Common in Frameworks */,
+				944598BE2CF9B4D5008B44CB /* XinChao in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,9 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94340D1A2CF3AE0300A8C13B /* Control in Frameworks */,
-				94340D182CF3ACCF00A8C13B /* Controllers in Frameworks */,
-				943BC04D2CEAA64C00F040A6 /* Common in Frameworks */,
+				944598972CF9B4A7008B44CB /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				943BC04F2CEAA66F00F040A6 /* Common in Frameworks */,
+				944598982CF9B4A7008B44CB /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +250,7 @@
 			);
 			name = "Magic Tap Mac App";
 			packageProductDependencies = (
-				9421E9102CEE6C9C00CC88A8 /* Common */,
+				944598BD2CF9B4D5008B44CB /* XinChao */,
 			);
 			productName = "Magic Tap Mac App";
 			productReference = 94335B2C2CEE69DF000670F2 /* Magic Tap Mac App.app */;
@@ -298,8 +299,6 @@
 			name = "Magic Tap";
 			packageProductDependencies = (
 				943BC04C2CEAA64C00F040A6 /* Common */,
-				94340D172CF3ACCF00A8C13B /* Controllers */,
-				94340D192CF3AE0300A8C13B /* Control */,
 			);
 			productName = Tapper;
 			productReference = 94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */;
@@ -367,6 +366,7 @@
 			packageReferences = (
 				943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */,
 				94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */,
+				944598BC2CF9B4D5008B44CB /* XCLocalSwiftPackageReference "../XinChao" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94AA2C6D2CE8FD2D00B0549C /* Products */;
@@ -887,6 +887,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Common;
 		};
+		944598BC2CF9B4D5008B44CB /* XCLocalSwiftPackageReference "../XinChao" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../XinChao;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -898,6 +902,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */;
 			productName = Common;
+		};
+		944598BD2CF9B4D5008B44CB /* XinChao */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = XinChao;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -14,6 +14,7 @@
 		944598982CF9B4A7008B44CB /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04E2CEAA66F00F040A6 /* Common */; };
 		944598BE2CF9B4D5008B44CB /* XinChao in Frameworks */ = {isa = PBXBuildFile; productRef = 944598BD2CF9B4D5008B44CB /* XinChao */; };
 		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94D77B512CF9B559000FF8FB /* Keypress in Frameworks */ = {isa = PBXBuildFile; productRef = 94D77B502CF9B559000FF8FB /* Keypress */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D77B512CF9B559000FF8FB /* Keypress in Frameworks */,
 				944598BE2CF9B4D5008B44CB /* XinChao in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +253,7 @@
 			name = "Magic Tap Mac App";
 			packageProductDependencies = (
 				944598BD2CF9B4D5008B44CB /* XinChao */,
+				94D77B502CF9B559000FF8FB /* Keypress */,
 			);
 			productName = "Magic Tap Mac App";
 			productReference = 94335B2C2CEE69DF000670F2 /* Magic Tap Mac App.app */;
@@ -367,6 +370,7 @@
 				943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */,
 				94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */,
 				944598BC2CF9B4D5008B44CB /* XCLocalSwiftPackageReference "../XinChao" */,
+				94D77B4F2CF9B559000FF8FB /* XCLocalSwiftPackageReference "../Keypress" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94AA2C6D2CE8FD2D00B0549C /* Products */;
@@ -891,6 +895,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../XinChao;
 		};
+		94D77B4F2CF9B559000FF8FB /* XCLocalSwiftPackageReference "../Keypress" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Keypress;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -906,6 +914,10 @@
 		944598BD2CF9B4D5008B44CB /* XinChao */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = XinChao;
+		};
+		94D77B502CF9B559000FF8FB /* Keypress */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Keypress;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

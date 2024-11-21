@@ -6,6 +6,7 @@
 //
 
 import Common
+import Keypress
 import SwiftUI
 import XinChao
 
@@ -16,9 +17,26 @@ struct MacView: View {
     init() {
         bonjourAdvertiser.stopAdvertising()
         bonjourAdvertiser.startAdvertising()
+        
+        bonjourAdvertiser.onReceiveMessage = { message in
+            
+            keypress.hotkeys("Control", "Command", "Q")
+        }
     }
     
     var body: some View {
+        VStack {
+            header
+            
+            List(bonjourAdvertiser.messages, id: \.self) {
+                Text($0)
+            }
+        }
+        .padding()
+    }
+    
+    @ViewBuilder
+    var header: some View {
         VStack {
             Text("Magic Tap 👌✨")
                 .font(.title)
@@ -38,12 +56,7 @@ struct MacView: View {
                     bonjourAdvertiser.startAdvertising()
                 }
             }
-            
-            List(bonjourAdvertiser.messages, id: \.self) {
-                Text($0)
-            }
         }
-        .padding()
     }
 }
 

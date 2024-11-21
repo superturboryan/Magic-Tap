@@ -18,9 +18,9 @@ struct MacView: View {
         bonjourAdvertiser.stopAdvertising()
         bonjourAdvertiser.startAdvertising()
         
-        bonjourAdvertiser.onReceiveMessage = { message in
+        bonjourAdvertiser.onReceiveMessage { message in
             
-            keypress.hotkeys("Control", "Command", "Q")
+//            keypress.press("Control", "Command", "Q")
         }
     }
     

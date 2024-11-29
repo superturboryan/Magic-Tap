@@ -14,6 +14,7 @@
 		943BC0372CEA876A00F040A6 /* Complication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 943BC0292CEA876900F040A6 /* Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		943BC04D2CEAA64C00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04C2CEAA64C00F040A6 /* Common */; };
 		943BC04F2CEAA66F00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04E2CEAA66F00F040A6 /* Common */; };
+		946304A32CF9B622004401DB /* DoublePinch in Frameworks */ = {isa = PBXBuildFile; productRef = 946304A22CF9B622004401DB /* DoublePinch */; };
 		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -160,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				946304A32CF9B622004401DB /* DoublePinch in Frameworks */,
 				943BC04F2CEAA66F00F040A6 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -271,6 +273,7 @@
 			name = "Magic Tap Watch App";
 			packageProductDependencies = (
 				943BC04E2CEAA66F00F040A6 /* Common */,
+				946304A22CF9B622004401DB /* DoublePinch */,
 			);
 			productName = "Tapper Watch App";
 			productReference = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */;
@@ -309,6 +312,7 @@
 			packageReferences = (
 				943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */,
 				94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */,
+				946304A12CF9B622004401DB /* XCLocalSwiftPackageReference "../DoublePinch" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94AA2C6D2CE8FD2D00B0549C /* Products */;
@@ -741,6 +745,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Common;
 		};
+		946304A12CF9B622004401DB /* XCLocalSwiftPackageReference "../DoublePinch" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../DoublePinch;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -761,6 +769,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */;
 			productName = Common;
+		};
+		946304A22CF9B622004401DB /* DoublePinch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DoublePinch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

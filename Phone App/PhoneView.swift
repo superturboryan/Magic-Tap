@@ -6,6 +6,7 @@
 //
 
 import Common
+import Control
 import Controllers
 import SwiftUI
 
@@ -111,6 +112,8 @@ struct PhoneView: View {
             systemController.skipToPreviousTrack()
         case .vibrate:
             systemController.vibrate()
+        case .toggleFlashlight:
+            Control.Flashlight.toggle()
         
         case .none:
             print("Not implemented")

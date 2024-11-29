@@ -19,6 +19,8 @@ public enum Action: String, CaseIterable, Codable, Sendable {
     
     case vibrate
     
+    case toggleFlashlight
+    
     case `none`
 }
 
@@ -35,6 +37,7 @@ extension Action: Identifiable {
         case .togglePlayPause: "⏯️"
         case .nextTrack: "⏭️"
         case .previousTrack: "⏮️"
+        case .toggleFlashlight: "🔦"
         case .vibrate: "🫨"
         case .none: "None"
         }

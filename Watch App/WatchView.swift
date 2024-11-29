@@ -102,27 +102,25 @@ struct WatchView: View {
         .buttonStyle(.plain)
     }
     
+    @ViewBuilder
     var info: some View {
-        ScrollViewReader { scrollView in
+        ScrollViewReader { proxy in
+            
+            let scrollToSetupAfterDelay = {
+                Task {
+                    try? await Task.sleep(for: .seconds(3.5))
+                    withAnimation(.spring) {
+                        proxy.scrollTo("Steps", anchor: .top)
+                    }
+                }
+            }
+            
             ScrollView {
                 VStack {
                     if isFirstLaunch {
                         onboarding
                     }
-                    VStack(spacing: 6) {
-                        Text("Follow these steps to get started:")
-                            .fontWeight(.semibold)
-                            .id("Steps")
-                        Text("- Make sure Double Tap is turned on by going to")
-                        Text("Settings > Gestures > Double Tap")
-                            .fontWeight(.semibold)
-                        Text("- Select an action using the crown on your watch")
-                        Text("- Double tap your fingers to send the action to your phone")
-                        Spacer(minLength: 10)
-                        Button("Continue") {
-                            showInfo = false
-                        }
-                    }
+                    setup
                 }
                 .background(.black)
                 .padding(.horizontal, 4)
@@ -130,12 +128,7 @@ struct WatchView: View {
             }
             .onAppear {
                 if isFirstLaunch {
-                    Task {
-                        try? await Task.sleep(for: .seconds(3.5))
-                        withAnimation(.spring) {
-                            scrollView.scrollTo("Steps", anchor: .top)
-                        }
-                    }
+                    _ = scrollToSetupAfterDelay()
                 }
             }
         }
@@ -155,6 +148,60 @@ struct WatchView: View {
             Spacer(minLength: 30)
         }
         .multilineTextAlignment(.center)
+    }
+    
+    var setup: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Follow these steps to get started:")
+                .fontWeight(.semibold)
+                .id("Steps")
+            if isNewDoubleTapGestureSupported {
+                doubleTapGestureSetup
+            } else {
+                accessibilityQuickActionSetup
+            }
+            Text("- Select an action using the crown on your watch")
+            Text("- Double tap your fingers to send the action to your phone")
+            Spacer(minLength: 10)
+            Button("Continue") {
+                showInfo = false
+            }
+        }
+    }
+    
+    var doubleTapGestureSetup: some View {
+        Group {
+            Text("- Make sure Double Tap is turned on by going to")
+            Text("Settings > Gestures > Double Tap")
+                .fontWeight(.semibold)
+        }
+    }
+    
+    var accessibilityQuickActionSetup: some View {
+        Group {
+            Text("- Turn on Quick Actions by going to")
+            Text("Settings > Accessibility > Quick Actions")
+                .fontWeight(.semibold)
+        }
+    }
+    
+    var isNewDoubleTapGestureSupported: Bool {
+        // Check if watch is Series 9 / Ultra or newer
+        // https://gist.github.com/adamawolf/3048717#file-apple_mobile_device_types-txt
+        var sysinfo = utsname()
+        uname(&sysinfo)
+        let machineMirror = Mirror(reflecting: sysinfo.machine)
+        let model = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        guard
+            let firstModelChar = model.first(where: \.isNumber),
+            let firstModelInt = Int(String(firstModelChar))
+        else {
+            return false
+        }
+        return firstModelInt >= 7
     }
 }
 

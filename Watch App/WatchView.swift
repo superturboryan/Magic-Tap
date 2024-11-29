@@ -6,6 +6,7 @@
 //
 
 import Common
+import DoublePinch
 import SwiftUI
 
 struct WatchView: View {
@@ -97,7 +98,7 @@ struct WatchView: View {
         } label: {
             EmptyView()
         }
-        .handGestureShortcut(.primaryAction)
+        .doublePinch()
         .buttonStyle(.plain)
     }
     

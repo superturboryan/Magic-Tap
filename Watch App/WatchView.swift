@@ -95,10 +95,10 @@ struct WatchView: View {
         Button {
             wcManager.sendAction(selectedAction)
         } label: {
-            Text("")
+            EmptyView()
         }
-        .buttonStyle(.plain)
         .handGestureShortcut(.primaryAction)
+        .buttonStyle(.plain)
     }
     
     var info: some View {

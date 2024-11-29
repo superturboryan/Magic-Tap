@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		94340D182CF3ACCF00A8C13B /* Controllers in Frameworks */ = {isa = PBXBuildFile; productRef = 94340D172CF3ACCF00A8C13B /* Controllers */; };
+		94340D1A2CF3AE0300A8C13B /* Control in Frameworks */ = {isa = PBXBuildFile; productRef = 94340D192CF3AE0300A8C13B /* Control */; };
 		943BC02C2CEA876900F040A6 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02B2CEA876900F040A6 /* WidgetKit.framework */; };
 		943BC02E2CEA876900F040A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 943BC02D2CEA876900F040A6 /* SwiftUI.framework */; };
 		943BC0372CEA876A00F040A6 /* Complication.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 943BC0292CEA876900F040A6 /* Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		943BC04D2CEAA64C00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04C2CEAA64C00F040A6 /* Common */; };
 		943BC04F2CEAA66F00F040A6 /* Common in Frameworks */ = {isa = PBXBuildFile; productRef = 943BC04E2CEAA66F00F040A6 /* Common */; };
-		945F77A62CE9ED4C00FD5EEF /* Control in Frameworks */ = {isa = PBXBuildFile; productRef = 945F77A52CE9ED4C00FD5EEF /* Control */; };
-		945F77A82CE9ED4C00FD5EEF /* Controllers in Frameworks */ = {isa = PBXBuildFile; productRef = 945F77A72CE9ED4C00FD5EEF /* Controllers */; };
 		94AA2C7D2CE8FD2F00B0549C /* Magic Tap Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 94AA2C7C2CE8FD2F00B0549C /* Magic Tap Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -150,8 +150,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				945F77A62CE9ED4C00FD5EEF /* Control in Frameworks */,
-				945F77A82CE9ED4C00FD5EEF /* Controllers in Frameworks */,
+				94340D1A2CF3AE0300A8C13B /* Control in Frameworks */,
+				94340D182CF3ACCF00A8C13B /* Controllers in Frameworks */,
 				943BC04D2CEAA64C00F040A6 /* Common in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,9 +242,9 @@
 			);
 			name = "Magic Tap";
 			packageProductDependencies = (
-				945F77A52CE9ED4C00FD5EEF /* Control */,
-				945F77A72CE9ED4C00FD5EEF /* Controllers */,
 				943BC04C2CEAA64C00F040A6 /* Common */,
+				94340D172CF3ACCF00A8C13B /* Controllers */,
+				94340D192CF3AE0300A8C13B /* Control */,
 			);
 			productName = Tapper;
 			productReference = 94AA2C6C2CE8FD2D00B0549C /* Magic Tap.app */;
@@ -307,8 +307,8 @@
 			mainGroup = 94AA2C632CE8FD2D00B0549C;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */,
 				943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */,
+				94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 94AA2C6D2CE8FD2D00B0549C /* Products */;
@@ -733,24 +733,26 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../ControlKit;
+		};
 		943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Common;
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/superturboryan/ControlKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
+		94340D172CF3ACCF00A8C13B /* Controllers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Controllers;
+		};
+		94340D192CF3AE0300A8C13B /* Control */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94340D162CF3ACCF00A8C13B /* XCLocalSwiftPackageReference "../ControlKit" */;
+			productName = Control;
+		};
 		943BC04C2CEAA64C00F040A6 /* Common */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Common;
@@ -759,16 +761,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 943BC04B2CEAA64C00F040A6 /* XCLocalSwiftPackageReference "Common" */;
 			productName = Common;
-		};
-		945F77A52CE9ED4C00FD5EEF /* Control */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */;
-			productName = Control;
-		};
-		945F77A72CE9ED4C00FD5EEF /* Controllers */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 945F77A42CE9ED4C00FD5EEF /* XCRemoteSwiftPackageReference "ControlKit" */;
-			productName = Controllers;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

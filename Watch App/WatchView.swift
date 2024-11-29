@@ -49,8 +49,13 @@ struct WatchView: View {
                 isFirstLaunch = false
             }
         }
-        .onChange(of: selectedAction) { old, new in
-            wcManager.updateSelectedAction(new)
+        .onChange(of: selectedAction) { _, selectedAction in
+            wcManager.updateSelectedAction(selectedAction)
+        }
+        .onChange(of: wcManager.isReachable) { _, isReachable in
+            if isReachable {
+                wcManager.updateSelectedAction(selectedAction)
+            }
         }
     }
     

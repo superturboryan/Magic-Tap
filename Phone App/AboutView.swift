@@ -84,9 +84,17 @@ struct AboutItem: Hashable {
         ]),
         AboutItem(title: "Are all watches supported?", text: [
             """
-            At the moment, Magic Tap only supports Apple Watch models that support the **Double Tap** gesture.
+            Yes! 🎉
             
-            [**Tap here for more info 🍎**](https://www.apple.com/uk/newsroom/2023/10/apple-watch-double-tap-gesture-now-available-with-watchos-10-1/) on the Double Tap gesture.
+            If your watch is a **Series 9 / Ultra or newer**, the 'Double Tap' gesture should already be enabled.
+            
+            **[👉 Tap here for more info](https://www.apple.com/uk/newsroom/2023/10/apple-watch-double-tap-gesture-now-available-with-watchos-10-1/)** on the Double Tap gesture for Series 9 / Ultra and newer models.
+            
+            If your watch is **older than the Series 9**, you'll need to enable 'Quick Actions' in your watch's accessibility settings. This can be found in the **Settings** app on your watch:
+            
+            **Settings > Accessibility > Quick Actions**
+                        
+            **[👉 Tap here for more info](https://support.apple.com/en-gb/guide/watch/apdec70bfd2d/watchos)** on enabling Quick Actions.
             """,
         ]),
         AboutItem(title: String(localized: "How do I install the watchOS app?"), text: [String(localized:

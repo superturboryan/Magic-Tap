@@ -15,6 +15,7 @@ struct PhoneView: View {
     @EnvironmentObject var systemController: SystemController
     @EnvironmentObject var wcManager: WCManager
     
+    @State var keepAwake = false
     @State var selectedAction: Action = .none
     @State var showAbout = false
     
@@ -26,11 +27,15 @@ struct PhoneView: View {
         for: MessageKeys.select.notification
     )
     
+    init() {
+        UIApplication.shared.isIdleTimerDisabled = keepAwake
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 gradientBackground
-                watchStatusView
+                content
             }
             .ignoresSafeArea()
             .toolbar {
@@ -43,6 +48,9 @@ struct PhoneView: View {
         }
         .onReceive(performActionPublisher) { handleNotifcation($0) }
         .onReceive(selectActionPublisher) { handleNotifcation($0) }
+        .onChange(of: keepAwake) { _, keepAwake in
+            UIApplication.shared.isIdleTimerDisabled = keepAwake
+        }
     }
     
     var gradientBackground: some View {
@@ -55,6 +63,22 @@ struct PhoneView: View {
             endPoint: .bottomTrailing
         )
         .overlay(.background.opacity(0.3))
+    }
+    
+    var content: some View {
+        VStack(spacing: 20) {
+            Spacer()
+            
+            watchStatusView
+            
+            Spacer()
+            
+            Toggle(isOn: $keepAwake) {
+                Text("Keep phone awake")
+                    .fontWeight(.semibold)
+            }
+            .padding([.bottom, .horizontal], 40)
+        }
     }
     
     var watchStatusView: some View {

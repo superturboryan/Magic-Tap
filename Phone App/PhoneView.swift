@@ -73,17 +73,18 @@ struct PhoneView: View {
             
             Spacer()
             
-            Toggle(isOn: $keepAwake) {
-                Text("Keep phone awake")
-                    .fontWeight(.semibold)
+            if wcManager.isWatchAppInstalled {
+                keepAwakeToggle
+                    .animation(.default, value: wcManager.isWatchAppInstalled)
             }
-            .padding([.bottom, .horizontal], 40)
         }
     }
     
     var watchStatusView: some View {
         VStack {
-            if wcManager.isReachable {
+            if !wcManager.isWatchAppInstalled {
+                installWatchAppView
+            } else if wcManager.isReachable {
                 selectedActionView
                     .transition(.scale)
             } else {
@@ -107,6 +108,14 @@ struct PhoneView: View {
         }
         .font(.title)
         .animation(.default, value: selectedAction)
+    }
+    
+    var keepAwakeToggle: some View {
+        Toggle(isOn: $keepAwake) {
+            Text("Keep phone awake")
+                .fontWeight(.semibold)
+        }
+        .padding([.bottom, .horizontal], 40)
     }
     
     var openWatchAppView: some View {
@@ -146,6 +155,12 @@ struct PhoneView: View {
             }
             .foregroundStyle(.primary)
         }
+    }
+    
+    var installWatchAppView: some View {
+        Text("Install Magic Tapper \non your Apple Watch to begin")
+            .font(.title2)
+            .multilineTextAlignment(.center)
     }
     
     func handleNotifcation(_ notification: Notification) {

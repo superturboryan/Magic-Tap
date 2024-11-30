@@ -17,6 +17,7 @@ public enum MessageKeys {
 public final class WCManager: NSObject, ObservableObject {
     
     @Published public var isReachable = false
+    @Published public var isWatchAppInstalled = false
     
     private let session = WCSession.default
     private var cancellables: [AnyCancellable] = []
@@ -108,6 +109,15 @@ extension WCManager: WCSessionDelegate {
             self?.isReachable = isReachable
         }
         .store(in: &cancellables)
+        
+        #if os(iOS)
+        session.publisher(for: \.isWatchAppInstalled)
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] isInstalled in
+                self?.isWatchAppInstalled = isInstalled
+        }
+        .store(in: &cancellables)
+        #endif
         
         updateSelectedAction(cachedAction)
     }

@@ -9,6 +9,7 @@ import Common
 import Control
 import Controllers
 import SwiftUI
+import TipKit
 
 struct PhoneView: View {
     
@@ -75,7 +76,6 @@ struct PhoneView: View {
             
             if wcManager.isWatchAppInstalled {
                 keepAwakeToggle
-                    .animation(.default, value: wcManager.isWatchAppInstalled)
             }
         }
     }
@@ -110,12 +110,20 @@ struct PhoneView: View {
         .animation(.default, value: selectedAction)
     }
     
+    @ViewBuilder
     var keepAwakeToggle: some View {
+        let tip = KeepAwakeTip()
+        
         Toggle(isOn: $keepAwake) {
-            Text("Keep phone awake")
+            Text("☕️ Keep phone awake")
                 .fontWeight(.semibold)
         }
+        .tint(.yellow)
         .padding([.bottom, .horizontal], 40)
+        .popoverTip(tip, arrowEdge: .bottom) { _ in
+            keepAwake = true
+            tip.invalidate(reason: .actionPerformed)
+        }
     }
     
     var openWatchAppView: some View {
@@ -152,7 +160,11 @@ struct PhoneView: View {
             } label: {
                 Image(systemName: "info.circle")
                     .fontWeight(.bold)
+                    .popoverTip(OpenAboutViewTip(), arrowEdge: .top) { _ in
+                        showAbout = true
+                    }
             }
+            .buttonStyle(.plain)
             .foregroundStyle(.primary)
         }
     }

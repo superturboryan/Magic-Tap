@@ -16,9 +16,14 @@ struct PhoneView: View {
     @EnvironmentObject var systemController: SystemController
     @EnvironmentObject var wcManager: WCManager
     
+    @Environment(\.colorScheme) var colorScheme
+    
     @State var keepAwake = false
     @State var selectedAction: Action = .none
     @State var showAbout = false
+    
+    @AppStorage("tapCount")
+    var tapCount = 0
     
     let performActionPublisher = NotificationCenter.default.publisher(
         for: MessageKeys.perform.notification
@@ -55,15 +60,40 @@ struct PhoneView: View {
     }
     
     var gradientBackground: some View {
-        LinearGradient(
-            gradient: Gradient(colors: [
-                .purple,
-                .blue
-            ]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .overlay(.background.opacity(0.3))
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    .background,
+                    .background,
+                    .cyan,
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .overlay(colorScheme == .dark ? .background.opacity(0.3) : Color.clear)
+            
+            RadialGradient(
+                gradient: Gradient(colors: [
+                    .blue.opacity(0.5),
+                    .clear
+                ]),
+                center: .bottomLeading,
+                startRadius: 5,
+                endRadius: 400
+            )
+            .blendMode(.overlay)
+            
+            RadialGradient(
+                gradient: Gradient(colors: [
+                    .indigo.opacity(0.5),
+                    .clear
+                ]),
+                center: .top,
+                startRadius: 5,
+                endRadius: 400
+            )
+            
+        }
     }
     
     var content: some View {
@@ -95,7 +125,7 @@ struct PhoneView: View {
         .padding()
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-        .shadow(radius: 2, x: 0, y: 4)
+        .shadow(color: .black.opacity(0.15), radius: 2, x: 0, y: 4)
         .animation(.spring, value: wcManager.isReachable)
     }
     
@@ -115,7 +145,7 @@ struct PhoneView: View {
         let tip = KeepAwakeTip()
         
         Toggle(isOn: $keepAwake) {
-            Text("☕️ Keep phone awake")
+            Text("☕️ Keep screen ON")
                 .fontWeight(.semibold)
         }
         .tint(.yellow)
@@ -128,8 +158,9 @@ struct PhoneView: View {
     
     var openWatchAppView: some View {
         VStack(spacing: 20) {
-            Text("Open watch app to continue ⌚️")
+            Text("Open watch app to continue")
                 .font(.title3)
+                .fontWeight(.semibold)
             
             Image(.icon)
                 .resizable()
@@ -145,10 +176,10 @@ struct PhoneView: View {
                // No action
             } label: {
                 Image(systemName: wcManager.isReachable ? "checkmark.applewatch" : "applewatch.slash")
-                .foregroundStyle(wcManager.isReachable ? .green : .red)
-                .fontWeight(.heavy)
-                .contentTransition(.symbolEffect(.replace))
-                .animation(.default, value: wcManager.isReachable)
+                    .foregroundStyle(wcManager.isReachable ? .blue : .red)
+                    .fontWeight(.heavy)
+                    .contentTransition(.symbolEffect(.replace))
+                    .animation(.default, value: wcManager.isReachable)
             }
         }
     }
@@ -158,14 +189,12 @@ struct PhoneView: View {
             Button {
                 showAbout = true
             } label: {
-                Image(systemName: "info.circle")
-                    .fontWeight(.bold)
+                Text("About")
+                    .fontWeight(.semibold)
                     .popoverTip(OpenAboutViewTip(), arrowEdge: .top) { _ in
                         showAbout = true
                     }
             }
-            .buttonStyle(.plain)
-            .foregroundStyle(.primary)
         }
     }
     
@@ -183,6 +212,7 @@ struct PhoneView: View {
         if let actionToPerform = notification.userInfo?[MessageKeys.perform] as? Action {
             selectedAction = actionToPerform
             perform(actionToPerform)
+            tapCount += 1
         }
     }
     
@@ -215,4 +245,11 @@ struct PhoneView: View {
 
 #Preview {
     PhoneView()
+}
+
+extension Color {
+    
+    static var background: Color {
+        .init(uiColor: UIColor.systemBackground)
+    }
 }

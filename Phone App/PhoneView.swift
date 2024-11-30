@@ -28,14 +28,14 @@ struct PhoneView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                selectedActionView
+            ZStack {
+                gradientBackground
+                watchStatusView
             }
-            .imageScale(.large)
-            .padding()
+            .ignoresSafeArea()
             .toolbar {
                 watchImage
-                showAboutButton
+                aboutButton
             }
         }
         .sheet(isPresented: $showAbout) {
@@ -45,34 +45,74 @@ struct PhoneView: View {
         .onReceive(selectActionPublisher) { handleNotifcation($0) }
     }
     
+    var gradientBackground: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [
+                .purple,
+                .blue
+            ]),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .overlay(.background.opacity(0.3))
+    }
+    
+    var watchStatusView: some View {
+        VStack {
+            if wcManager.isReachable {
+                selectedActionView
+                    .transition(.scale)
+            } else {
+                openWatchAppView
+                    .transition(.scale)
+            }
+        }
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        .shadow(radius: 2, x: 0, y: 4)
+        .animation(.spring, value: wcManager.isReachable)
+    }
+    
     var selectedActionView: some View {
         VStack(spacing: 20) {
             Text("Selected Action")
                 .fontWeight(.semibold)
             Text("\(selectedAction.display)")
+                .contentTransition(.numericText())
         }
         .font(.title)
         .animation(.default, value: selectedAction)
     }
     
+    var openWatchAppView: some View {
+        VStack(spacing: 20) {
+            Text("Open watch app to continue ⌚️")
+                .font(.title3)
+            
+            Image(.icon)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 60, height: 60)
+                .mask(Circle())
+        }
+    }
+
     var watchImage: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {
             Button {
                // No action
             } label: {
-                if wcManager.isReachable {
-                    Image(systemName: "checkmark.applewatch")
-                        .foregroundStyle(.green)
-                } else {
-                    Image(systemName: "applewatch.slash")
-                        .foregroundStyle(.red)
-                }
+                Image(systemName: wcManager.isReachable ? "checkmark.applewatch" : "applewatch.slash")
+                .foregroundStyle(wcManager.isReachable ? .green : .red)
+                .fontWeight(.heavy)
+                .contentTransition(.symbolEffect(.replace))
+                .animation(.default, value: wcManager.isReachable)
             }
-            .buttonStyle(.plain)
         }
     }
     
-    var showAboutButton: some ToolbarContent {
+    var aboutButton: some ToolbarContent {
         ToolbarItem(placement: .topBarTrailing) {
             Button {
                 showAbout = true
@@ -80,6 +120,7 @@ struct PhoneView: View {
                 Image(systemName: "info.circle")
                     .fontWeight(.bold)
             }
+            .foregroundStyle(.primary)
         }
     }
     

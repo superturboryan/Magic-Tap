@@ -89,6 +89,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		9410DB9F2CFBA62D00C5D5FB /* Exceptions for "Phone App" folder in "Magic Tap" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 94AA2C6B2CE8FD2D00B0549C /* Magic Tap */;
+		};
 		943BC03B2CEA876A00F040A6 /* Exceptions for "Complication" folder in "Complication" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -124,6 +131,7 @@
 		94AA2C6E2CE8FD2D00B0549C /* Phone App */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				9410DB9F2CFBA62D00C5D5FB /* Exceptions for "Phone App" folder in "Magic Tap" target */,
 				943BC0442CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Magic Tap Watch App" target */,
 				943BC0452CEA99B100F040A6 /* Exceptions for "Phone App" folder in "Complication" target */,
 			);
@@ -634,6 +642,7 @@
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Phone App/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -669,6 +678,7 @@
 				DEVELOPMENT_TEAM = T6MXF72738;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Phone App/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Magic Tap";
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "The app can control media playback";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

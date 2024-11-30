@@ -62,7 +62,7 @@ struct AboutView: View {
                     }
                 }
                 ToolbarItem(placement: .cancellationAction) {
-                    Text(verbatim: "🧪 1.0.0") // TODO: read version from config
+                    Text(verbatim: "🧪 1.1.0") // TODO: read version from config
                         .font(.subheadline)
                         .fontWeight(.semibold)
                 }

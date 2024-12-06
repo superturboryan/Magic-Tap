@@ -9,24 +9,26 @@ import TipKit
 
 struct KeepAwakeTip: Tip {
     
+    @Parameter static var isDisplayed: Bool = false
+    
     var title: Text {
-        Text(String(localized: "Prevent your phone screen from turning off", comment: "Tip title"))
+        Text(String(localized: "This prevents your phone from going to sleep", comment: "Tip title"))
             .font(.footnote)
             .fontWeight(.medium)
     }
     
     var message: Text? {
         Text(String(
-            localized: "The app needs to remain open with the phone screen on for some features to work",
+            localized: "The phone needs to remain open for some features to work. \n\nDecrease the screen brightness to save battery ⚡️",
             comment: "Tip message"
         ))
     }
     
     var actions: [Action] {[
-        .init(title: "Keep screen on")
+        .init(title: "Decrease Brightness")
     ]}
     
     var rules: [Rule] {[
-        // Show for all users
+        #Rule(Self.$isDisplayed) { $0 == true }
     ]}
 }

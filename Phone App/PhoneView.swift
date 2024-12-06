@@ -9,7 +9,6 @@ import Common
 import Control
 import Controllers
 import SwiftUI
-import TipKit
 
 struct PhoneView: View {
     
@@ -17,8 +16,13 @@ struct PhoneView: View {
     @EnvironmentObject var wcManager: WCManager
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.scenePhase) var scenePhase
+    
+    @State var decreaseBrightness = false
+    @State var previousBrightness: CGFloat = .zero
     
     @State var keepAwake = false
+    
     @State var selectedAction: Action = .none
     @State var showAbout = false
     
@@ -43,6 +47,7 @@ struct PhoneView: View {
                 gradientBackground
                 content
             }
+            .overlay(decreasedBrightnessOverlay)
             .ignoresSafeArea()
             .toolbar {
                 watchImage
@@ -56,6 +61,11 @@ struct PhoneView: View {
         .onReceive(selectActionPublisher) { handleNotifcation($0) }
         .onChange(of: keepAwake) { _, keepAwake in
             UIApplication.shared.isIdleTimerDisabled = keepAwake
+        }
+        .onChange(of: scenePhase) { _, scenePhase in
+            if scenePhase == .inactive && decreaseBrightness {
+                decreaseBrightness = false
+            }
         }
     }
     
@@ -96,17 +106,33 @@ struct PhoneView: View {
         }
     }
     
+    @ViewBuilder
+    var decreasedBrightnessOverlay: some View {
+        if decreaseBrightness {
+            Color.black.opacity(0.9)
+                .onTapGesture {
+                    decreaseBrightness = false
+                }
+        } else {
+            EmptyView()
+        }
+    }
+    
     var content: some View {
-        VStack(spacing: 20) {
+        VStack {
             Spacer()
             
             watchStatusView
             
             Spacer()
             
-            if wcManager.isWatchAppInstalled {
-                keepAwakeToggle
+            VStack(spacing: 16) {
+                if wcManager.isWatchAppInstalled {
+                    keepAwakeToggle
+                    screenOffToggle
+                }
             }
+            .padding([.bottom, .horizontal], 40)
         }
     }
     
@@ -145,14 +171,36 @@ struct PhoneView: View {
         let tip = KeepAwakeTip()
         
         Toggle(isOn: $keepAwake) {
-            Text("☕️ Keep screen ON")
+            Text("☕️ Keep Phone Awake")
                 .fontWeight(.semibold)
         }
         .tint(.yellow)
-        .padding([.bottom, .horizontal], 40)
+        .onChange(of: keepAwake, { _, _ in
+            Task { @MainActor in
+                if keepAwake {
+                    KeepAwakeTip.isDisplayed = true
+                }
+            }
+        })
         .popoverTip(tip, arrowEdge: .bottom) { _ in
-            keepAwake = true
+            decreaseBrightness = true
             tip.invalidate(reason: .actionPerformed)
+        }
+    }
+    
+    var screenOffToggle: some View {
+        Toggle(isOn: $decreaseBrightness) {
+            Text("🎚️ Decrease Brightness")
+                .fontWeight(.semibold)
+        }
+        .tint(.yellow)
+        .onChange(of: decreaseBrightness) { _, _ in
+            if decreaseBrightness {
+                previousBrightness = UIScreen.main.brightness
+            }
+            Task { @MainActor in
+                UIScreen.main.brightness = decreaseBrightness ? .zero : previousBrightness
+            }
         }
     }
     

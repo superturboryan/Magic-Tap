@@ -159,10 +159,11 @@ struct PhoneView: View {
         VStack(spacing: 20) {
             Text("Selected Action")
                 .fontWeight(.semibold)
+                .font(.title)
             Text("\(selectedAction.display)")
+                .font(.system(size: 60))
                 .contentTransition(.numericText())
         }
-        .font(.title)
         .animation(.default, value: selectedAction)
     }
     

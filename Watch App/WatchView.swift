@@ -36,9 +36,7 @@ struct WatchView: View {
             }
         }
         .onAppear {
-            #if DEBUG
-//            isFirstLaunch = true // FOR DEBUGGING ONBOARDING
-            #endif
+            // debugOnboarding()
             if isFirstLaunch {
                 showInfo = true
             }
@@ -207,6 +205,12 @@ struct WatchView: View {
             return false
         }
         return firstModelInt >= 7
+    }
+    
+    func debugOnboarding() {
+    #if DEBUG
+        isFirstLaunch = true // FOR DEBUGGING ONBOARDING
+    #endif
     }
 }
 

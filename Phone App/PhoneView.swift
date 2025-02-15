@@ -67,6 +67,11 @@ struct PhoneView: View {
                 decreaseBrightness = false
             }
         }
+        .onAppear {
+            Task { @MainActor in
+                try await UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound])
+            }
+        }
     }
     
     var gradientBackground: some View {
@@ -285,10 +290,27 @@ struct PhoneView: View {
             systemController.vibrate()
         case .toggleFlashlight:
             Control.Flashlight.toggle()
-        
+        case .notification:
+            sendOpenAppNotification()
         case .none:
             print("Not implemented")
         }
+    }
+    
+    func sendOpenAppNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Open Magic Tapper"
+        content.body = "Tap to open the app on your iPhone."
+        content.sound = .default
+        content.interruptionLevel = .critical
+
+        let request = UNNotificationRequest(
+            identifier: "openAppRequest",
+            content: content,
+            trigger: nil
+        )
+
+        UNUserNotificationCenter.current().add(request)
     }
 }
 
